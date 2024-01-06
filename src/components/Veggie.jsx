@@ -73,7 +73,7 @@ const Card = styled.div`
 
   p {
     position: absolute;
-    z-index: 10;
+    z-index: 1;
     left: 50%;
     bottom: 0%;
     transform: translate(-50%, 0%);
@@ -85,14 +85,15 @@ const Card = styled.div`
     height: 40%;
     display: flex;
     justify-content: center;
-    bottom:0;
+    
+    
   }
 
   img {
-    border-radius: 2rem;
+    
     position: absolute;
     left: 0;
-    width: 100%;
+    width:100%;
     height: 100%;
     object-fit: cover;
     
