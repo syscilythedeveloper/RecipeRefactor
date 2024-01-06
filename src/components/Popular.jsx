@@ -64,6 +64,8 @@ function Popular() {
   );
 }
 
+
+
 const Wrapper = styled.div`
 
 margin: 4rm 0rem;
@@ -77,7 +79,7 @@ const Card = styled.div`
 
   p {
     position: absolute;
-    z-index: 10;
+    z-index: 1;
     left: 50%;
     bottom: 0%;
     transform: translate(-50%, 0%);
@@ -89,14 +91,15 @@ const Card = styled.div`
     height: 40%;
     display: flex;
     justify-content: center;
-    bottom:0;
+    
+    
   }
 
   img {
-    border-radius: 2rem;
+    
     position: absolute;
     left: 0;
-    width: 100%;
+    width:100%;
     height: 100%;
     object-fit: cover;
     
@@ -105,10 +108,10 @@ const Card = styled.div`
 
 const Gradient = styled.div`
 z-index: 3; 
-position: absolute: 
+position: absolute;
 width: 100%;
 height: 100%;
-background: lineaar-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5))
+background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5))
 `
 
 export default Popular;
