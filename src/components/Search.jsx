@@ -26,7 +26,7 @@ const Search = () => {
 }
 
 const FormStyle =styled.form`
-margin: 0rem 20rem; 
+margin: 0rem 2rem; 
  
 div{
   width: 100%;
