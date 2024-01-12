@@ -18,7 +18,7 @@ const Search = () => {
       <div>
         <FaSearch></FaSearch>
         <input onChange= {(e) => setInput(e.target.value)}
-        type="text" value = {input} /> 
+        type="text" value = {input} placeholder="chicken, tomatoes, garlic"/> 
       </div>
       
     </FormStyle>
