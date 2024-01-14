@@ -1,4 +1,4 @@
-import Veggie from "../components/Veggie";
+import Whole30 from "../components/Whole30";
 import Popular from "../components/Popular";
 import {motion} from 'framer-motion'
 
@@ -12,7 +12,7 @@ const Home = () => {
       transition={{duration: 0.5}}
     
     >
-        <Veggie />
+        <Whole30 />
         <Popular />
       
     </motion.div>
