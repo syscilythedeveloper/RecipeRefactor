@@ -15,7 +15,7 @@ const Whole30 = () => {
 
   const getHealthy = async () => {
 
-    const check = localStorage.getItem('veggie')
+    const check = localStorage.getItem('healthy')
 
     if(check){
         SetHealthy(JSON.parse(check))
@@ -37,9 +37,9 @@ const Whole30 = () => {
       <Splide
         options={{
           perPage: 3,
-          arrows: false,
-          pagination: false,
-          drag: "free",
+          arrows: true,
+          pagination: true,
+          drag: true,
           gap: '5rem'
         }}
       >
