@@ -14,8 +14,20 @@ function Recipe() {
         const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}&includeNutrition=true`);
         const detailData = await data.json()
         setDetails(detailData)
+        console.log("************ incoming details")
         console.log(detailData)
+        
+      
+        const nutrients = detailData.nutrition.nutrients;
 
+        const calories = nutrients.find(nutrient => nutrient.name === 'Calories');
+        const fat = nutrients.find(nutrient => nutrient.name === 'Fat');
+        const protein = nutrients.find(nutrient => nutrient.name === 'Protein');
+
+        console.log('Calories:', calories.amount);
+        console.log('Fat:', fat.amount);
+        console.log('Protein:', protein.amount);
+        
     
     }
 
@@ -32,8 +44,19 @@ function Recipe() {
         <img src ={details.image} alt=""></img>
       </div>
       <Info>
-        <Button className = {activeTab === "instructions" ? "active": ""} onClick={() => setActiveTab('instructions')}> Instructions </Button>
-        <Button className = {activeTab === "ingredients" ? "active": ""} onClick={() => setActiveTab('ingredients')}> Ingredients </Button>
+        <Button 
+            className = {activeTab === "instructions" ? "active": ""} 
+            onClick={() => setActiveTab('instructions')}
+        > 
+            Instructions 
+        </Button>
+
+        <Button 
+        className = {activeTab === "ingredients" ? "active": ""} 
+        onClick={() => setActiveTab('ingredients')}
+        > 
+        Ingredients 
+        </Button>
         {activeTab === "instructions" && (   
             <div>
                 <h4 dangerouslySetInnerHTML={{__html: details.summary}}></h4>
@@ -58,9 +81,11 @@ const DetailWrapper = styled.div`
     margin-top: 10rem;
     margin-bottom: 5rem;;
     display: flex; 
+
     .active {
         background: linear-gradient( #494949, #313131);
-        color: white;
+        color: white; 
+        
     }
     h2{ 
         margin-bottom: rem;
