@@ -12,22 +12,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('/src/assets/background.png');
+  background-size: cover;
  
-  /* opacity: .9;
-  position: relative; */
-  
 
 }
 
 
-/* body::before {    
-  content: "";
-  background-image: url('/src/assets/top-close-up-view-vegetables-tomatoes-with-pedicels-garlic-bell-peppers-lemon-oil-onion_140725-72203.avif');
-  background-size: cover;
-  position: absolute;
-  inset:0;
-  opacity: 0.25;
-} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
