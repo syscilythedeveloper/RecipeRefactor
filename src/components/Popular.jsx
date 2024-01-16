@@ -53,7 +53,7 @@ function Popular() {
               <SplideSlide key={recipe.id}>
                 <Card>
                     <Link to= {"/recipe/" + recipe.id}> 
-                    <p>{recipe.title}</p>
+                    <p><span>{recipe.title}</span></p>
                     <img src={recipe.image} alt="recipe img" />
                     <Gradient />
                   </Link>
@@ -71,14 +71,20 @@ function Popular() {
 
 const Wrapper = styled.div`
 
-margin: 4rm 0rem;
+margin: 5rem 10rem;
 `;
 
 const Card = styled.div`
   min-height: 15rem;
-  border-radius: 2rem;
+  border-radius:4rem;
   overflow: hidden;
   position: relative;
+  box-shadow: 0px 0px 10px 5px #FFE4C4;
+
+
+
+  
+  
 
   p {
     position: absolute;
@@ -98,16 +104,35 @@ const Card = styled.div`
     
   }
 
+
   img {
     
     position: absolute;
-    left: 0;
-    width:100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
     height: 100%;
     object-fit: cover;
-    
+
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 15px 5px #482908; /* Adjusted box shadow on hover */
+    transform: scale(1.05); /* Added scale transformation on hover */
+  }
+
+  &:hover p {
+    color: #482908; /* Change text color on hover */
+  }
+
+  &:hover p span {
+    background-color: white; /* Change text color on hover */
+    width: 100%
   }
 `;
+
+
 
 const Gradient = styled.div`
 z-index: 3; 
