@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom';
+import AdvancedSearch from './AdvancedSearch';
+
 
 const Search = () => {
 
@@ -20,6 +22,7 @@ const Search = () => {
         <input onChange= {(e) => setInput(e.target.value)}
         type="text" value = {input} placeholder="chicken, tomatoes, garlic"/> 
       </div>
+      <AdvancedSearch />
       
     </FormStyle>
   )
@@ -44,6 +47,7 @@ div{
   outline: none;
   width: 100%;
 }
+
 
 svg{
   position: absolute;
