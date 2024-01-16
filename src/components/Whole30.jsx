@@ -65,7 +65,7 @@ const Whole30 = () => {
 
 const Wrapper = styled.div`
 
-margin: 4rm 0rem;
+margin: 4rem 5rem;
 `;
 
 const Card = styled.div`

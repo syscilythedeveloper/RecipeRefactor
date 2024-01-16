@@ -12,8 +12,21 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0 20%;
+ 
+  opacity: .9;
+  position: relative;
+  
 
+}
+
+
+body::before {    
+  content: "";
+  background-image: url('/src/assets/top-close-up-view-vegetables-tomatoes-with-pedicels-garlic-bell-peppers-lemon-oil-onion_140725-72203.avif');
+  background-size: cover;
+  position: absolute;
+  inset:0;
+  opacity: 0.25;
 }
 
 code {
@@ -23,16 +36,15 @@ code {
 
 h4 {
   font-size: 1rem;
+  isolation:isolate
   
 }
 
 h3{
-  font-size: 1.5rem;
-  
-  line-height: 2.5rem;
-  margin: 2rem 0;
+  isolation:isolate
 }
 
 a {
+  isolation: isolate;
   color: brown;
 }
