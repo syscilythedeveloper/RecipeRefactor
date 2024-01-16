@@ -73,7 +73,7 @@ const Card = styled.div`
   border-radius:4rem;
   overflow: hidden;
   position: relative;
-  box-shadow: 0px 0px 10px 5px #FFE4C4;
+  box-shadow: 0px 0px 10px 5px #FFD68A;
 
 
 
