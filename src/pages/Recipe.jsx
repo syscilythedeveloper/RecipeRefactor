@@ -57,9 +57,16 @@ function Recipe() {
         > 
         Ingredients 
         </Button>
+
+        <Button 
+        className = {activeTab === "nutritionInfo" ? "active": ""} 
+        onClick={() => setActiveTab('nutritionInfo')}
+        > 
+        Nutritional Info 
+        </Button>
         {activeTab === "instructions" && (   
             <div>
-                <h4 dangerouslySetInnerHTML={{__html: details.summary}}></h4>
+                {/* <h4 dangerouslySetInnerHTML={{__html: details.summary}}></h4> */}
                 <h4 dangerouslySetInnerHTML={{__html: details.instructions}}></h4>
             </div>)}
         {activeTab === "ingredients" && (
@@ -68,6 +75,7 @@ function Recipe() {
                 <li key ={ingredient.id}> {ingredient.original}</li>
                 )};
             </ul>
+        
 
         )}
      
