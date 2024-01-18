@@ -10,25 +10,38 @@ const Category = () => {
   return (
     <List activeClassName="activeClass">
 
-      <SLink to={'/cuisine/Italian'}>
-        <FaPizzaSlice />
-        <h4>Italian</h4>
+
+      <SLink to={'/cuisine/Caribbean'}>
+        <FaHamburger />
+        <h4>Caribbean</h4>
       </SLink>
 
-      <SLink to={'/cuisine/American'}>
+      <SLink to={'/cuisine/Mexican'}>
         <FaHamburger />
+        <h4>Mexican</h4>
+      </SLink>
+
+      <SLink to={'/cuisine/African'}>
+        <GiNoodles />
+        <h4>African</h4>
+      </SLink>
+
+      <SLink to={'/cuisine/Indian'} >
+        <GiChopsticks/>
+        <h4>Indian</h4>
+      </SLink>
+
+      <SLink to={'/cuisine/American'} >
+        <GiChopsticks/>
         <h4>American</h4>
       </SLink>
 
-      <SLink to={'/cuisine/Thai'}>
-        <GiNoodles />
+      <SLink to={'/cuisine/Thai'} >
+        <GiChopsticks/>
         <h4>Thai</h4>
       </SLink>
 
-      <SLink to={'/cuisine/Japanese'} >
-        <GiChopsticks/>
-        <h4>Japanese</h4>
-      </SLink>
+
     </List>
   )
 }
@@ -57,20 +70,33 @@ h4{
     font-size: 0.8rem;
 }
 
+
 svg{
     color: white;
     font-size: 1.5rem;
 }
 
 
-&.active, activeClass {
-    background: linear-gradient(to right, #f27121, #e94057);
+&.active, &.activeClass {
+    background: #FFD68A;
+    box-shadow: 0px 0px 10px 5px #482908;
+
+
+
     svg {
-        color: white;
+        color: #482908;
+        
     }
     h4 {
-        color: white;
+        color: #482908;
     }
+
+  }
+
+&:hover {
+    box-shadow: 0px 0px 15px 5px black; /* Adjusted box shadow on hover */
+    transform: scale(1.05); /* Added scale transformation on hover */
+  } 
 `;
 
 export default Category
