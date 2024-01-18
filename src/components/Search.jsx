@@ -32,7 +32,7 @@ const FormStyle =styled.form`
 margin: 0rem 2rem; 
  
 div{
-  width: 100%;
+  width: 85%;
   position: relative; 
 }
 
@@ -46,6 +46,7 @@ div{
   border-radius: 1rem;
   outline: none;
   width: 100%;
+  margin: 0 auto;
 }
 
 
@@ -55,6 +56,7 @@ svg{
   left: 0%;
   transform: translate(100%, -50%);
   color: white; 
+  
 }
 
 

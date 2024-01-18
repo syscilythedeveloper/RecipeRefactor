@@ -14,8 +14,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url('/src/assets/background.png');
   background-size: cover;
-  position: relative
- 
+  position: relative;
+  margin: 5px 15px;
 
 }
 
