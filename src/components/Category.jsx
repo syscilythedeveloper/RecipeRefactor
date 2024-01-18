@@ -1,5 +1,5 @@
-import {FaPizzaSlice, FaHamburger} from 'react-icons/fa';
-import {GiNoodles, GiChopsticks} from 'react-icons/gi';
+import {FaHamburger} from 'react-icons/fa';
+import {GiChiliPepper,  GiRoastChicken, GiTacos } from 'react-icons/gi';
 import styled from "styled-components";
 import { NavLink } from 'react-router-dom';
 
@@ -12,32 +12,23 @@ const Category = () => {
 
 
       <SLink to={'/cuisine/Caribbean'}>
-        <FaHamburger />
+        <GiRoastChicken />
         <h4>Caribbean</h4>
       </SLink>
 
       <SLink to={'/cuisine/Mexican'}>
-        <FaHamburger />
+        <GiTacos />
         <h4>Mexican</h4>
       </SLink>
 
-      <SLink to={'/cuisine/African'}>
-        <GiNoodles />
-        <h4>African</h4>
-      </SLink>
-
-      <SLink to={'/cuisine/Indian'} >
-        <GiChopsticks/>
-        <h4>Indian</h4>
-      </SLink>
 
       <SLink to={'/cuisine/American'} >
-        <GiChopsticks/>
+        <FaHamburger/>
         <h4>American</h4>
       </SLink>
 
       <SLink to={'/cuisine/Thai'} >
-        <GiChopsticks/>
+        <GiChiliPepper/>
         <h4>Thai</h4>
       </SLink>
 
@@ -77,9 +68,10 @@ svg{
 }
 
 
-&.active, &.activeClass {
+&.active {
     background: #FFD68A;
     box-shadow: 0px 0px 10px 5px #482908;
+    transform: scale(1.05);
 
 
 
@@ -95,7 +87,7 @@ svg{
 
 &:hover {
     box-shadow: 0px 0px 15px 5px black; /* Adjusted box shadow on hover */
-    transform: scale(1.05); /* Added scale transformation on hover */
+    /* Added scale transformation on hover */
   } 
 `;
 

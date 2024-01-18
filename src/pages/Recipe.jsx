@@ -105,6 +105,8 @@ const DetailWrapper = styled.div`
     margin-top: 10rem;
     margin-bottom: 5rem;
     display: flex; 
+    text-align: center;
+    
 
     .active {
         background: linear-gradient( #494949, #313131);
