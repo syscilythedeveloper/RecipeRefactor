@@ -9,24 +9,32 @@ function Recipe() {
     let params = useParams()
     const [details, setDetails] = useState({});
     const [activeTab, setActiveTab] = useState('instructions')
+    const [nutrients, setNutrients] = useState([]);
     
     const fetchDetails = async () => {
         const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}&includeNutrition=true`);
         const detailData = await data.json()
         setDetails(detailData)
-        console.log("************ incoming details")
         console.log(detailData)
         
       
-        const nutrients = detailData.nutrition.nutrients;
+        const nutrientsData = detailData.nutrition.nutrients;
+        console.log(nutrientsData)
 
-        const calories = nutrients.find(nutrient => nutrient.name === 'Calories');
-        const fat = nutrients.find(nutrient => nutrient.name === 'Fat');
-        const protein = nutrients.find(nutrient => nutrient.name === 'Protein');
+        const filteredNutrients = nutrientsData.filter(nutrient => {
+            const allowedNames = ["Calories", "Fat", "Saturated Fat", "Carbohydrates", "Cholesterol", "Sodium", "Protein", "Fiber" ];
+            return allowedNames.includes(nutrient.name);
+          });
 
-        console.log('Calories:', calories.amount);
-        console.log('Fat:', fat.amount);
-        console.log('Protein:', protein.amount);
+        const formattedNutrients = filteredNutrients.map(({ name, amount, unit }) => ({
+            name,
+            amount,
+            unit,
+          }));
+   
+        setNutrients(formattedNutrients)
+
+
         
     
     }
@@ -62,21 +70,29 @@ function Recipe() {
         className = {activeTab === "nutritionInfo" ? "active": ""} 
         onClick={() => setActiveTab('nutritionInfo')}
         > 
-        Nutritional Info 
+        Essential Nutritional Info 
         </Button>
+
         {activeTab === "instructions" && (   
             <div>
-                {/* <h4 dangerouslySetInnerHTML={{__html: details.summary}}></h4> */}
-                <h4 dangerouslySetInnerHTML={{__html: details.instructions}}></h4>
-            </div>)}
+                <p dangerouslySetInnerHTML={{__html: details.instructions}}></p>
+            </div>
+        )}
         {activeTab === "ingredients" && (
                 <ul>
                 {details.extendedIngredients?.map((ingredient) => 
                 <li key ={ingredient.id}> {ingredient.original}</li>
                 )};
-            </ul>
-        
-
+                </ul>
+        )}
+        {activeTab === "nutritionInfo" && (
+               <ul>
+               {nutrients.map(nutrient => (
+                   <li key={nutrient.name}>
+                       <b>{nutrient.name}</b>: {nutrient.amount} {nutrient.unit}
+                   </li>
+               ))}
+           </ul>
         )}
      
     
@@ -100,6 +116,7 @@ const DetailWrapper = styled.div`
         }
     li{ font-size: 1.2rem;
         line-height: 2.5rem;
+        list-style-type: none; 
     }
     ul {
         margin-top: 2rem;
