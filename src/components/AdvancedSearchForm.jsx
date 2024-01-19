@@ -3,10 +3,12 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import styled from 'styled-components'
 
-
 import React from 'react'
 
+
 const AdvancedSearchForm = () => {
+ 
+
     const [includeIngredients, setInclude] = useState("")
     const [excludeIngredients, setExclude] = useState("")
     const [minProtein, setMinProtein] = useState("")
@@ -15,7 +17,10 @@ const AdvancedSearchForm = () => {
     const [maxFat, setMaxFat] = useState("");
     const [maxCarbs, setMaxCarbs] = useState("");
 
-    const submitForm = () => {
+
+
+    const SubmitForm = (e) => {
+
 
         const data = {
         includeIngredients: includeIngredients !== '' ? includeIngredients : null,
@@ -27,9 +32,16 @@ const AdvancedSearchForm = () => {
         maxCarbs: maxCarbs !== '' ? maxCarbs : null
             
         }
+
+
+       console.log(data)
+
+    
+        
       
-        console.log(data );
+
     }
+    
   
 
 
@@ -75,7 +87,7 @@ const AdvancedSearchForm = () => {
             <Form.Control onChange={(e) => {setMaxCarbs(e.target.value)}} type="number" name="maxCarbs"/>
         </Form.Group>
 
-        <Button onClick={submitForm}>Submit</Button>
+        <Button onClick={SubmitForm}>Submit</Button>
 
       </PopupForm>
 

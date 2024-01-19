@@ -7,6 +7,7 @@ import Popup from './Popup';
 
 
 
+
 const Search = () => {
 
   const [input, setInput] = useState("");
@@ -24,6 +25,7 @@ const Search = () => {
         type="text" value = {input} placeholder="chicken, tomatoes, garlic"/> 
       </div>
       <Popup />
+    
      
       
     </FormStyle>
