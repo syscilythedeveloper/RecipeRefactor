@@ -102,10 +102,9 @@ function Recipe() {
 }
 
 const DetailWrapper = styled.div`
-    margin-top: 10rem;
-    margin-bottom: 5rem;
+    margin: 10px;
     display: flex; 
-    text-align: center;
+    
     
 
     .active {
@@ -114,7 +113,7 @@ const DetailWrapper = styled.div`
         
     }
     h2{ 
-        margin-bottom: rem;
+        margin-bottom: 1.2rem;
         }
     li{ font-size: 1.2rem;
         line-height: 2.5rem;
@@ -123,6 +122,11 @@ const DetailWrapper = styled.div`
     ul {
         margin-top: 2rem;
     };
+
+    p{
+        margin-top: 2rem;
+        font-size: 1.2rem;
+    }
 `
 
 const Button = styled.button`
