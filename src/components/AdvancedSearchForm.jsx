@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import styled from 'styled-components'
-import { GiPencil } from "react-icons/gi";
+
 
 import React from 'react'
 
@@ -14,6 +14,22 @@ const AdvancedSearchForm = () => {
     const [maxCalories, setMaxCalories] = useState("")
     const [maxFat, setMaxFat] = useState("");
     const [maxCarbs, setMaxCarbs] = useState("");
+
+    const submitForm = () => {
+
+        const data = {
+        includeIngredients: includeIngredients !== '' ? includeIngredients : null,
+        exludeIngredients: excludeIngredients !== '' ? excludeIngredients : null,
+        minProtein: minProtein !== '' ? minProtein : null,
+        minCalories: minCalories !== '' ? minCalories : null,
+        maxCalories: maxCalories !== '' ? maxCalories : null,
+        maxFat: maxFat !== '' ? maxFat : null,
+        maxCarbs: maxCarbs !== '' ? maxCarbs : null
+            
+        }
+      
+        console.log(data );
+    }
   
 
 
@@ -58,6 +74,8 @@ const AdvancedSearchForm = () => {
             <Form.Label> Max Carbs: </Form.Label>
             <Form.Control onChange={(e) => {setMaxCarbs(e.target.value)}} type="number" name="maxCarbs"/>
         </Form.Group>
+
+        <Button onClick={submitForm}>Submit</Button>
 
       </PopupForm>
 

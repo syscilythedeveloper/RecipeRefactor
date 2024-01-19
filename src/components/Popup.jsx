@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Stack, TextField, Input } from "@mui/material";
+import { Button, Dialog, DialogTitle, DialogContent, DialogActions, Stack,} from "@mui/material";
 import {GiKnifeFork} from "react-icons/gi"
 import React, { useState } from 'react'
 import AdvancedSearchForm from './AdvancedSearchForm';
@@ -8,7 +8,7 @@ import AdvancedSearchForm from './AdvancedSearchForm';
 
 
 
-const AdvancedSearch = () => {
+const Popup = () => {
   const [open, setOpen] = useState(false)
   
 
@@ -42,4 +42,4 @@ const AdvancedSearch = () => {
   )
 }
 
-export default AdvancedSearch
+export default Popup
