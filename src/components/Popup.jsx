@@ -1,7 +1,8 @@
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions, Stack,} from "@mui/material";
 import {GiKnifeFork} from "react-icons/gi"
 import React, { useState } from 'react'
-import AdvancedSearchForm from './AdvancedSearchForm';
+import AdvancedSearchForm from "./AdvancedSearchForm"
+
 
 
 
@@ -27,6 +28,8 @@ const Popup = () => {
     <DialogContent>
       <Stack spacing = {2} >
         <AdvancedSearchForm />
+     
+        
 
       </Stack>
     
