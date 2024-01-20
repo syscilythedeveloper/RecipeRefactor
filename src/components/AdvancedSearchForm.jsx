@@ -1,133 +1,186 @@
-import { useState } from 'react'
-import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
-import styled from 'styled-components'
+// import { useForm } from "react-hook-form";
+// import { DevTool } from "@hookform/devtools";
+// import { useState, useEffect } from "react";
 
-import React from 'react'
 
+// const AdvancedSearchForm = () => {
+//   const { register, control, handleSubmit } = useForm();
+//   const [recipes, setRecipes] = useState("");
+
+
+//   useEffect(() => {
+//     console.log("Recipes:", recipes);
+//   }, [recipes]);
+
+//   const onSubmit = async (data,event) => {
+//     event.preventDefault()
+//     console.log("Form data: ", data);
+//     const includeIngredients = data.includeIngredients;
+//     const maxCal = data.maxCal;
+//     const minProtein = data.minProtein;
+
+//     const valuesObject = {
+//       includeIngredients: includeIngredients,
+//       maxCal: maxCal,
+//       minProtein: minProtein,
+//     };
+//     console.log("Values list:", valuesObject);
+//     console.log(valuesObject.includeIngredients);
+
+//     try {
+//       const response = await fetch(
+//         `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&maxCal=${valuesObject.maxCal}&includeIngredients=${includeIngredients}&minProtein=${minProtein}`
+//       );
+
+//       if (!response.ok) {
+//         throw new Error("API request failed");
+//       }
+
+//       const responseData = await response.json();
+//       setRecipes(responseData);
+//     } catch (error) {
+//       console.error("Error fetching data:", error);
+//     }
+
+    
+//   };
+
+//   return (
+//     <>
+//       <form onSubmit={handleSubmit(onSubmit)}>
+//         <div>
+//           <label htmlFor="includeIngredients"> Include Ingredients: </label>
+//           <input
+//             type="text"
+//             id="includeIngredients"
+//             {...register("includeIngredients", { pattern: /^[A-Za-z]+$/i })}
+//           />
+//         </div>
+
+//         <div>
+//           <label htmlFor="maxCal"> Maximum Calorie: </label>
+//           <input type="number" id="maxCal" {...register("maxCal", { min: 1 })} />
+//         </div>
+
+//         <div>
+//           <label htmlFor="minProtein"> Minimum Protein: </label>
+//           <input type="number" id="minProtein" {...register("minProtein")} />
+//         </div>
+//         <button type="submit">Submit</button>
+//       </form>
+//       <DevTool control={control} />
+//     </>
+//   );
+// };
+
+// export default AdvancedSearchForm;
+
+import { useForm } from "react-hook-form";
+import { DevTool } from "@hookform/devtools";
+import { useState, useEffect } from "react";
+import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 const AdvancedSearchForm = () => {
- 
+  const { register, control, handleSubmit } = useForm();
+  const [recipes, setRecipes] = useState([]);
 
-    const [includeIngredients, setInclude] = useState("")
-    const [excludeIngredients, setExclude] = useState("")
-    const [minProtein, setMinProtein] = useState("")
-    const [minCalories, setMinCalories] = useState("")
-    const [maxCalories, setMaxCalories] = useState("")
-    const [maxFat, setMaxFat] = useState("");
-    const [maxCarbs, setMaxCarbs] = useState("");
+  useEffect(() => {
+    console.log("Recipes:", recipes);
+  }, [recipes]);
 
+  const onSubmit = async (data, event) => {
+    event.preventDefault();
+    console.log("Form data: ", data);
+    const includeIngredients = data.includeIngredients;
+    const maxCal = data.maxCal;
+    const minProtein = data.minProtein;
 
+    const valuesObject = {
+      includeIngredients: includeIngredients,
+      maxCal: maxCal,
+      minProtein: minProtein,
+    };
+    console.log("Values list:", valuesObject);
+    console.log(valuesObject.includeIngredients);
 
-    const SubmitForm = (e) => {
+    try {
+      const response = await fetch(
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&maxCal=${valuesObject.maxCal}&includeIngredients=${includeIngredients}&minProtein=${minProtein}`
+      );
 
+      if (!response.ok) {
+        throw new Error("API request failed");
+      }
 
-        const data = {
-        includeIngredients: includeIngredients !== '' ? includeIngredients : null,
-        exludeIngredients: excludeIngredients !== '' ? excludeIngredients : null,
-        minProtein: minProtein !== '' ? minProtein : null,
-        minCalories: minCalories !== '' ? minCalories : null,
-        maxCalories: maxCalories !== '' ? maxCalories : null,
-        maxFat: maxFat !== '' ? maxFat : null,
-        maxCarbs: maxCarbs !== '' ? maxCarbs : null
-            
-        }
-
-
-       console.log(data)
-
-    
-        
-      
-
+      const responseData = await response.json();
+      setRecipes(responseData.results);
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
-    
-  
+  };
 
-
+  // Move the return statement outside the onSubmit function
   return (
     <>
-      
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <label htmlFor="includeIngredients"> Include Ingredients: </label>
+          <input
+            type="text"
+            id="includeIngredients"
+            {...register("includeIngredients", { pattern: /^[A-Za-z]+$/i })}
+          />
+        </div>
 
-      <PopupForm>
-      <h2> Nutritional Requirements</h2>
+        <div>
+          <label htmlFor="maxCal"> Maximum Calorie: </label>
+          <input type="number" id="maxCal" {...register("maxCal", { min: 1 })} />
+        </div>
 
-        <Form.Group className="mb-3">
-            <Form.Label> Include Ingredients: </Form.Label>
-            <Form.Control onChange={(e) => {setInclude(e.target.value)}} type="text" name="includeIngredients" placeholder="Enter MUST-HAVES separated by comma (e.g., chicken, onion, garlic)"/>
-        </Form.Group>
+        <div>
+          <label htmlFor="minProtein"> Minimum Protein: </label>
+          <input type="number" id="minProtein" {...register("minProtein")} />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
 
-        <Form.Group className="mb-3">
-            <Form.Label> Exclude Ingredients: </Form.Label>
-            <Form.Control onChange={(e) => {setExclude(e.target.value)}} type="text" name="excludeIngredients" placeholder="Enter ingredients to exclude, separated by comma (e.g., beef, dairy, gluten)"/>
-        </Form.Group>
+      <Grid>
+        {recipes.map((item) => (
+          <Card key={item.id}>
+            <Link to={"/recipe/" + item.id}>
+              <img src={item.image} alt="" />
+              <h4> {item.title}</h4>
+            </Link>
+          </Card>
+        ))}
+      </Grid>
 
-        <Form.Group className="mb-3">
-            <Form.Label> Minimum Protein: </Form.Label>
-            <Form.Control onChange={(e) => {setMinProtein(e.target.value)}} type="number" name="minProtein" placeholder="(grams) e.g. 40" />
-        </Form.Group>
-
-        <Form.Group className="mb-3">
-            <Form.Label> Minimum Calories: </Form.Label>
-            <Form.Control onChange={(e) => {setMinCalories(e.target.value)}} type="number" name="minCalories" />
-        </Form.Group>
-
-        <Form.Group className="mb-3">
-            <Form.Label> Maximum Calories: </Form.Label>
-            <Form.Control onChange={(e) => {setMaxCalories(e.target.value)}} type="number" name="maxCalories"/>
-        </Form.Group>
-
-        <Form.Group className="mb-3">
-            <Form.Label> Maximum Fat: </Form.Label>
-            <Form.Control onChange={(e) => {setMaxFat(e.target.value)}} type="number" name="maxFat"/>
-        </Form.Group>
-
-        <Form.Group className="mb-3">
-            <Form.Label> Max Carbs: </Form.Label>
-            <Form.Control onChange={(e) => {setMaxCarbs(e.target.value)}} type="number" name="maxCarbs"/>
-        </Form.Group>
-
-        <Button onClick={SubmitForm}>Submit</Button>
-
-      </PopupForm>
-
-
+      <DevTool control={control} />
     </>
-  )
-}
+  );
+};
 
-const PopupForm = styled(Form)`
-    margin-right: 10px;
-    
-
-    h2 {
-        margin: 5px 0;
-        text-align: center;
-    }
-
-    .mb-3 {
-        margin: 30px 10px 30px 10px; /* Adjust the value as needed */
-        font-weight: 500;
-    
-        
-    
-        
-    }
-
-    input {
-        margin: 10px 0 5px 0;
-        height:20px;
-        width: 100%;
-        border-top: none;
-        border-left: none;
-        border-bottom-color: #9C6755;
-        
-       
-        
-    
-    }
-
-
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  grid-gap: 3rem;
 `;
-export default AdvancedSearchForm
 
+const Card = styled.div`
+  img {
+    width: 100%;
+    border-radius: 2rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  h4 {
+    text-align: center;
+    padding: 1rem;
+  }
+`;
+
+export default AdvancedSearchForm;
