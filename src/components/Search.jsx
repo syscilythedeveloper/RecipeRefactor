@@ -18,17 +18,20 @@ const Search = () => {
   }
   
   return (
+    <>
     <FormStyle onSubmit={submitHandler}>
       <div>
         <FaSearch></FaSearch>
         <input onChange= {(e) => setInput(e.target.value)}
         type="text" value = {input} placeholder="chicken, tomatoes, garlic"/> 
       </div>
-      <Popup />
+      
     
      
       
     </FormStyle>
+    <Popup />
+    </>
   )
 }
 
