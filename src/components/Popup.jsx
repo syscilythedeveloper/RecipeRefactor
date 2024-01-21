@@ -1,8 +1,9 @@
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions} from "@mui/material";
 import {GiKnifeFork} from "react-icons/gi"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import queryString from 'query-string'
 
 
 
@@ -10,40 +11,45 @@ import { useNavigate } from "react-router-dom";
 function Popup  ()   {
   const [open, setOpen] = useState(false)
   const { register, handleSubmit } = useForm();
-  const [nutritionalRequirements, setNutritionalRequirements] = useState([])
+  const [nutritionalRequirements, setNutritionalRequirements] = useState({ingredients:"", maxCal: 500, minProtein:1})
+
   const navigate = useNavigate();
 
+  const getRequirements = () => {
+    console.log("Requirements for route: ", nutritionalRequirements)
+    const queryParams = queryString.stringify(nutritionalRequirements);
+    console.log(queryParams)
+    // const { ingredients, maxCal, minProtein } = nutritionalRequirements
+
+    // console.log(ingredients)
+    // console.log(maxCal)
+    // console.log(minProtein)
 
 
-
-  const onSubmit = (data, event) => {
-    event.preventDefault()
+    // navigate(`/filterSearched/includeIngredients:${ingredients}/maxCal:${maxCal}/minprotein:${minProtein}`)
+    navigate(`/filterSearched/${queryParams}`)
     
 
+  }
+  useEffect(() => {
+    // This effect will run whenever nutritionalRequirements is updated
+    getRequirements();
+    
+  }, [nutritionalRequirements]);
+
+
+  const onSubmit = (data) => {
    
+
     console.log("Form data: ", data);
-    const includeIngredients = data.includeIngredients;
-    const maxCal = data.maxCal;
-    const minProtein = data.minProtein;
-    setNutritionalRequirements(data)
-    console.log("ing:", includeIngredients)
-    console.log("cal:", maxCal)
-    console.log("pro:", minProtein)
-    const resultObject = {};
+    nutritionalRequirements.ingredients = data.includeIngredients
+    nutritionalRequirements.maxCal = data.maxCal
+    nutritionalRequirements.minProtein = data.minProtein
+    setNutritionalRequirements({...nutritionalRequirements})
 
-    console.log(nutritionalRequirements)
-    Object.entries(nutritionalRequirements).forEach(([key, value]) => {
-      console.log(`${key}: ${value}`)
-      resultObject[key] = value;
+    console.log("nutritonal reqs: ", nutritionalRequirements)
+    getRequirements()
 
-      
-      ;
-    })
-    console.log("results", JSON.stringify(resultObject))
-
-    const results = JSON.stringify(resultObject)
-    console.log(results)
-    navigate('/filterSearched/' + results)
   
   };
 
@@ -89,7 +95,7 @@ function Popup  ()   {
         </div>
         <DialogActions>
           <Button color="error" onClick={() => setOpen(false)}> Cancel </Button>
-          <Button type="submit" autoFocus onClick={() => setOpen(false)}> Search</Button>
+          <Button type="submit" autoFocus onClick={() => { setOpen(false); }}> Search</Button>
         </DialogActions>
       </form>
 
