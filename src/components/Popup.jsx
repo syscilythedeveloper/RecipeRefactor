@@ -2,7 +2,6 @@ import { Button, Dialog, DialogTitle, DialogContent, DialogActions} from "@mui/m
 import {GiKnifeFork} from "react-icons/gi"
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
-import {  useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 
@@ -69,6 +68,7 @@ function Popup  ()   {
      
         
         <form onSubmit={handleSubmit(onSubmit)}>
+
         <div>
           <label htmlFor="includeIngredients"> Include Ingredients: </label>
           <input
