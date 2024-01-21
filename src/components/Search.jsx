@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom';
-import Popup from './Popup';
+
 
 
 
@@ -25,12 +25,9 @@ const Search = () => {
         <input onChange= {(e) => setInput(e.target.value)}
         type="text" value = {input} placeholder="chicken, tomatoes, garlic"/> 
       </div>
-      
-    
-     
-      
+
     </FormStyle>
-    <Popup />
+   
     </>
   )
 }

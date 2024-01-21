@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const Popup = () => {
+function Popup  ()   {
   const [open, setOpen] = useState(false)
   const { register, handleSubmit } = useForm();
   const [nutritionalRequirements, setNutritionalRequirements] = useState([])
@@ -17,8 +17,9 @@ const Popup = () => {
 
 
 
-  const onSubmit = async (data, event) => {
-    event.preventDefault();
+  const onSubmit = (data, event) => {
+    event.preventDefault()
+    
 
    
     console.log("Form data: ", data);
@@ -29,11 +30,6 @@ const Popup = () => {
     console.log("ing:", includeIngredients)
     console.log("cal:", maxCal)
     console.log("pro:", minProtein)
-  
-  };
-
-
-  useEffect(() => {
     const resultObject = {};
 
     console.log(nutritionalRequirements)
@@ -48,39 +44,15 @@ const Popup = () => {
 
     const results = JSON.stringify(resultObject)
     console.log(results)
-   
     navigate('/filterSearched/' + results)
-    
-    
-
-
-  },[nutritionalRequirements, navigate])
-
   
+  };
 
-  // useEffect(() => {
-  //   const formattedrecipe = JSON.stringify(recipes)
-  //   let recipeIDs = []
-    
-
-
-  //   console.log("Recipes:", recipes);
-  //   console.log(formattedrecipe)
-
-  //   recipes.forEach(recipe => {
-  //     console.log("Recipe ID:", recipe.id);
-  //     recipeIDs.push(recipe.id)
-
-  //   });
-  //   console.log(recipeIDs)
-  //   navigate("/filterSearched/" + recipeIDs)
-    
-  // }, [recipes, navigate] )
 
 
   
+  
     
-
   return (
   <>
   <Button onClick={() => setOpen(true)}> Advanced Search</Button>

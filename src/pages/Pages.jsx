@@ -5,7 +5,7 @@ import Cuisine from './Cuisine';
 import Searched from './Searched';
 import Recipe from './Recipe';
 import FilterSearched from "./FilterSearched";
-import Popup from "../components/Popup"
+
 
 import { Route, Routes } from 'react-router-dom';
 

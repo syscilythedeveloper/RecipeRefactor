@@ -5,6 +5,7 @@ import Search from "./components/Search";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { GiKnifeFork } from "react-icons/gi";
+import PopUp from "./components/Popup"
 
 
 function App() {
@@ -16,6 +17,8 @@ function App() {
         <Logo to={"/"}> NutriRecipe</Logo>
       </Nav>
       <Search />
+      <PopUp />
+      
      
       <Category />
       <Pages />
