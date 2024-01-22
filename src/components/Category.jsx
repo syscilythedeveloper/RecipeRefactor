@@ -40,7 +40,7 @@ const Category = () => {
 const List = styled.div`
 display:flex;
 justify-content: center;
-margin: 2rem 0rem;
+margin: 2rem 15rem;
 `
 
 const SLink = styled(NavLink)`
@@ -86,8 +86,7 @@ svg{
   }
 
 &:hover {
-    box-shadow: 0px 0px 15px 5px black; /* Adjusted box shadow on hover */
-    /* Added scale transformation on hover */
+    box-shadow: 0px 0px 15px 5px black;
   } 
 `;
 

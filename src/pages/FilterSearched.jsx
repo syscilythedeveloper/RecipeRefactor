@@ -38,6 +38,8 @@ const FilterSearched = () => {
 }, [reqs])
 
 
+
+
   const getFilterSearched = async(resultObject) => {
     const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&maxCal=${resultObject.maxCal}&includeIngredients=${resultObject.ingredients}&minProtein=${resultObject.minProtein}`)
     const recipes = await data.json();
@@ -53,7 +55,7 @@ return (
   <>
   {filterSearchedRecipes.length === 0 ? (
     <h3>
-      <LiaSadTearSolid />Oh no! No results match your criteria. Please refine your search.
+      <LiaSadTearSolid /> Oh no! No results match your criteria. Please refine your search.
     </h3>
   ) : (
     <Grid>
