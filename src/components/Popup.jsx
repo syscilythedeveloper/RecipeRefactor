@@ -1,7 +1,5 @@
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions} from "@mui/material";
 import {GiKnifeFork} from "react-icons/gi"
-import { CiForkAndKnife } from "react-icons/ci";
-import { PiForkKnife } from "react-icons/pi";
 import { ImSpoonKnife } from "react-icons/im";
 import React, { useState, useEffect } from 'react'
 import { useForm } from "react-hook-form";
@@ -27,7 +25,6 @@ function Popup  ()   {
 
   }
   useEffect(() => {
-    // This effect will run whenever nutritionalRequirements is updated
     getRequirements(nutritionalRequirements);
     
   }, [nutritionalRequirements]);
