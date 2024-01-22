@@ -2,6 +2,8 @@ import React from 'react'
 import {useEffect, useState} from 'react';
 import { Link, useParams } from 'react-router-dom';
 import styled from "styled-components"
+import { LiaSadTearSolid } from "react-icons/lia";
+
 
 
 const Searched = () => {
@@ -27,19 +29,24 @@ const Searched = () => {
 
 
   return (
-    <Grid>
-        {searchedRecipes.map((item) => {
-            return (
-                <Card key = {item.id}>
-                    <Link to= {"/recipe/" + item.id}>
-                    <img src = {item.image} alt="" />
-                    <h4> {item.title}</h4>
-                    </Link>
-
-                </Card>
-            )
-        })}
-    </Grid>
+    <>
+    {searchedRecipes.length === 0 ? (
+      <h3>
+        <LiaSadTearSolid />Oh no!no results match your criteria. Please refine your search.
+      </h3>
+    ) : (
+      <Grid>
+        {searchedRecipes.map((item) => (
+          <Card key={item.id}>
+            <Link to={"/recipe/" + item.id}>
+              <img src={item.image} alt="" />
+              <h4>{item.title}</h4>
+            </Link>
+          </Card>
+        ))}
+      </Grid>
+    )}
+  </>
   )
 }
 
@@ -59,6 +66,8 @@ const Card = styled.div `
     a {
         text-decoration: none;
     }
+
+    h3{}
 
     h4 {
         text-align: center;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styled from "styled-components"
+import { LiaSadTearSolid } from "react-icons/lia";
 
 
 
@@ -48,21 +49,26 @@ const FilterSearched = () => {
 
 
 
-  return (
+return (
+  <>
+  {filterSearchedRecipes.length === 0 ? (
+    <h3>
+      <LiaSadTearSolid />Oh no!no results match your criteria. Please refine your search.
+    </h3>
+  ) : (
     <Grid>
-    {filterSearchedRecipes.map((item) => {
-        return (
-            <Card key = {item.id}>
-                <Link to= {"/recipe/" + item.id}>
-                <img src = {item.image} alt="" />
-                <h4> {item.title}</h4>
-                </Link>
-
-            </Card>
-        )
-    })}
-</Grid>
-  )
+      {filterSearchedRecipes.map((item) => (
+        <Card key={item.id}>
+          <Link to={"/recipe/" + item.id}>
+            <img src={item.image} alt="" />
+            <h4>{item.title}</h4>
+          </Link>
+        </Card>
+      ))}
+    </Grid>
+  )}
+</>
+)
 }
 
 

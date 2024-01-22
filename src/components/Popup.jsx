@@ -21,7 +21,7 @@ function Popup  ()   {
   const getRequirements = (dataset) => {
     console.log("Requirements for route: ", nutritionalRequirements)
     const queryParams = queryString.stringify(nutritionalRequirements);
-    console.log(queryParams)
+    console.log("query params:", queryParams)
     navigate(`/filterSearched/${queryParams}`)
     
 
@@ -45,6 +45,7 @@ function Popup  ()   {
     console.log("nutritonal reqs: ", nutritionalRequirements)
     reset()
     
+    
 
   
   };
@@ -61,6 +62,7 @@ function Popup  ()   {
   
     <Button onClick={() => setOpen(true)}> Extended Search</Button>
     
+    
     <Dialog 
       fullWidth
       maxWidth="md"
@@ -69,8 +71,9 @@ function Popup  ()   {
       aria-labelledby="'dialog-title" 
       aria-describedby="dialog-description"
     >
-      <AdvancedFormStyle>
+     
       <DialogTitle id="dialog-title"> <h4>Extended Search Options</h4></DialogTitle>
+      <AdvancedFormStyle>
       <DialogContent>
       
           
@@ -88,22 +91,22 @@ function Popup  ()   {
 
           <div>
             <label htmlFor="maxCal"> Maximum Calorie: </label>
-            <input type="number" id="maxCal" {...register("maxCal", { min: 1 })} />
+            <input placeholder = "required" type="number" id="maxCal"  defaultValue={500}{...register("maxCal", { min: 1 })} />
           </div>
 
           <div>
             <label htmlFor="minProtein"> Minimum Protein: </label>
-            <input type="number" id="minProtein" {...register("minProtein", { min: 1 })} />
+            <input placeholder = "required" type="number" id="minProtein" defaultValue={1} {...register("minProtein", { min: 1 })} />
           </div>
 
           
           <DialogActions>
-            <SubmitStyle>
+            
             <Button color="success" type="submit" autoFocus onClick={() => { setOpen(false); }}> Search <ImSpoonKnife /></Button>
-            </SubmitStyle>
-            <CancelStyle>
+           
+            
             <Button color="error" onClick={() => setOpen(false)}> Cancel  <GiKnifeFork/> </Button>
-            </CancelStyle>
+           
           </DialogActions>
           
           
@@ -115,7 +118,9 @@ function Popup  ()   {
       </DialogContent>
       </AdvancedFormStyle>
       
+      
     </Dialog>
+   
   
 
   </>
@@ -123,11 +128,13 @@ function Popup  ()   {
   )
 }
 
-const AdvancedFormStyle =styled.form`
+const AdvancedFormStyle =styled.div`
 
+section{
 background-color: rgb(130, 94, 92, 0.25);
 border-radius: 5px;
 color:#482908;
+}
 
 h4{
   text-align: center;
@@ -160,12 +167,12 @@ label{
 
 
 `
-const SubmitStyle =styled.div`
-box-shadow: 1px 1px 1px 1px green;
-`
-const CancelStyle =styled.div`
-box-shadow: 1px 1px 1px 1px red;
+// const SubmitStyle =styled.div`
+// box-shadow: 1px 1px 1px 1px green;
+// `
+// const CancelStyle =styled.div`
+// box-shadow: 1px 1px 1px 1px red;
 
-`
+// `
 
 export default Popup
