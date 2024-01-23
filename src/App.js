@@ -5,6 +5,7 @@ import Search from "./components/Search";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { GiKnifeFork } from "react-icons/gi";
+
 import PopUp from "./components/Popup"
 
 
@@ -16,6 +17,7 @@ function App() {
         <GiKnifeFork />
         <Logo to={"/"}> NutriRecipe</Logo>
       </Nav>
+      
       <Search />
       <PopUp />
       
@@ -36,6 +38,8 @@ const Logo = styled(Link)`
   font-size: 1.5rem; 
   font-weight: 400;
   font-family: "Lobster Two", cursive;
+  color:#B5651D;
+  
 `
 
 const Nav = styled.div`
@@ -44,7 +48,8 @@ display: flex;
 justify-content: flex-start;
 align-items: center;
 svg{
-  font-size: 2rem;
+  font-size: 1.5rem;
+  color:#B5651D;
 }
 
 `

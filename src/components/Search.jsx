@@ -45,8 +45,11 @@ margin: 0rem 2rem;
 }
  
 div{
-  width: 85%;
+  width: 100%;
   position: relative; 
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
 }
 
   input{
@@ -59,7 +62,8 @@ div{
   border-radius: 1rem;
   outline: none;
   width: 100%;
-  margin: 0 auto;
+  
+  
 }
 
 
