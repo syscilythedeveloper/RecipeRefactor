@@ -12,7 +12,9 @@ import styled from 'styled-components'
 function Popup  ()   {
   const [open, setOpen] = useState(false)
   const { register, reset, handleSubmit } = useForm();
-  const [nutritionalRequirements, setNutritionalRequirements] = useState({includeIngredients:"", excludeIngredients:"", maxCal: 600, minCal:0, minProtein:0, maxFat:100})
+  const [nutritionalRequirements, setNutritionalRequirements] = useState({})
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  // const [nutritionalRequirements, setNutritionalRequirements] = useState({includeIngredients:"", excludeIngredients:"", maxCal: 600, minCal:0, minProtein:0, maxFat:100})
 
   const navigate = useNavigate();
 
@@ -47,10 +49,6 @@ function Popup  ()   {
     
 
   }
-  useEffect(() => {
-    getRequirements(nutritionalRequirements);
-    
-  }, [nutritionalRequirements]);
 
 
   const onSubmit = (data) => {
@@ -67,13 +65,17 @@ function Popup  ()   {
     setNutritionalRequirements({...nutritionalRequirements})
 
     console.log("nutritonal reqs: ", nutritionalRequirements)
+    setFormSubmitted(true);
     reset()
     
-    
-
-  
   };
 
+  useEffect(() => {
+    if (formSubmitted) {
+      getRequirements(nutritionalRequirements);
+      setFormSubmitted(false); // Reset formSubmitted after handling the submission
+    }
+  }, [formSubmitted, nutritionalRequirements]);
 
 
   
