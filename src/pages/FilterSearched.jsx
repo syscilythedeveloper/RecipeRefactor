@@ -24,7 +24,7 @@ const FilterSearched = () => {
 
 
   console.log("results: ", resultObject)
-  console.log("ingredients: ", resultObject.ingredients)
+  console.log("ingredients: ", resultObject.includeIngredients)
   console.log("Maximum Calories: ", resultObject.maxCal)
   console.log("Minimum Protein: ", resultObject.minProtein)
   setReqs(resultObject)
@@ -41,7 +41,7 @@ const FilterSearched = () => {
 
 
   const getFilterSearched = async(resultObject) => {
-    const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&maxCal=${resultObject.maxCal}&includeIngredients=${resultObject.ingredients}&minProtein=${resultObject.minProtein}`)
+    const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&maxCal=${resultObject.maxCal}&includeIngredients=${resultObject.includeIngredients}&minProtein=${resultObject.minProtein}`)
     const recipes = await data.json();
 
     setFilterSearchRecipes(recipes.results)
@@ -53,11 +53,6 @@ const FilterSearched = () => {
 
 return (
   <>
-  {filterSearchedRecipes.length === 0 ? (
-    <h3>
-      <LiaSadTearSolid /> Oh no! No results match your criteria. Please refine your search.
-    </h3>
-  ) : (
     <Grid>
       {filterSearchedRecipes.map((item) => (
         <Card key={item.id}>
@@ -68,7 +63,7 @@ return (
         </Card>
       ))}
     </Grid>
-  )}
+  
 </>
 )
 }

@@ -12,12 +12,35 @@ import styled from 'styled-components'
 function Popup  ()   {
   const [open, setOpen] = useState(false)
   const { register, reset, handleSubmit } = useForm();
-  const [nutritionalRequirements, setNutritionalRequirements] = useState({ingredients:"", maxCal: 500, minProtein:1})
+  const [nutritionalRequirements, setNutritionalRequirements] = useState({includeIngredients:"", excludeIngredients:"", maxCal: 600, minCal:0, minProtein:0, maxFat:100})
 
   const navigate = useNavigate();
 
   const getRequirements = (dataset) => {
     console.log("Requirements for route: ", nutritionalRequirements)
+   
+    if (!nutritionalRequirements.includeIngredients){
+      nutritionalRequirements.includeIngredients = "onion"
+    }
+    if (!nutritionalRequirements.excludeIngredients){
+      nutritionalRequirements.excludeIngredients = "pork"
+    }
+    if (!nutritionalRequirements.maxCal){
+      nutritionalRequirements.maxCal = 600
+    }
+
+    if (!nutritionalRequirements.minCal){
+      nutritionalRequirements.minCal = 200
+    }
+
+    if (!nutritionalRequirements.minProtein){
+      nutritionalRequirements.minProtein = 200
+    }
+
+    if (!nutritionalRequirements.maxFat){
+      nutritionalRequirements.maxFat = 125
+    }
+
     const queryParams = queryString.stringify(nutritionalRequirements);
     console.log("query params:", queryParams)
     navigate(`/filterSearched/${queryParams}`)
@@ -31,12 +54,16 @@ function Popup  ()   {
 
 
   const onSubmit = (data) => {
+    
    
 
     console.log("Form data: ", data);
-    nutritionalRequirements.ingredients = data.includeIngredients
+    nutritionalRequirements.includeIngredients = data.includeIngredients
+    nutritionalRequirements.excludeIngredients = data.excludeIngredients
     nutritionalRequirements.maxCal = data.maxCal
+    nutritionalRequirements.minCal = data.minCal
     nutritionalRequirements.minProtein = data.minProtein
+    nutritionalRequirements.maxFat = data.maxFat
     setNutritionalRequirements({...nutritionalRequirements})
 
     console.log("nutritonal reqs: ", nutritionalRequirements)
@@ -87,22 +114,51 @@ function Popup  ()   {
           </div>
 
           <div>
-            <label htmlFor="maxCal"> Maximum Calorie: </label>
-            <input placeholder = "required" type="number" id="maxCal"  defaultValue={500}{...register("maxCal", { min: 1 })} />
+            <label htmlFor="excludeIngredients"> Exclude Ingredients: </label>
+            <input
+              type="text"
+              id="excludeIngredients"
+             
+              {...register("excludeIngredients", { pattern: /^[A-Za-z]+$/i })}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="maxCal"> Maximum Calories: </label>
+            <input  type="number" id="maxCal"  {...register("maxCal", { min: 1 })} />
+          </div>
+
+          <div>
+            <label htmlFor="minCal"> Minimum Calories: </label>
+            <input  type="number" id="minCal"  {...register("minCal", { min: 1 })} />
           </div>
 
           <div>
             <label htmlFor="minProtein"> Minimum Protein: </label>
-            <input placeholder = "required" type="number" id="minProtein" defaultValue={1} {...register("minProtein", { min: 1 })} />
+            <input placeholder = " Enter in grams" type="number" id="minProtein"  {...register("minProtein", { min: 1 })} />
           </div>
+
+          <div>
+            <label htmlFor="maxFat"> Maximum Fat: </label>
+            <input placeholder = "Enter in grams" type="number" id="maxFat" {...register("maxFat", { min: 1 })} />
+          </div>
+
+         
+
 
           
           <DialogActions>
             
-            <Button color="success" type="submit" autoFocus onClick={() => { setOpen(false); }}> Search <ImSpoonKnife /></Button>
+            <StyleSubmit>
+              <Button id="sumbit-button" color="success" type="submit" autoFocus onClick={() => { setOpen(false); }}> Search <ImSpoonKnife /></Button>
+            </StyleSubmit>
            
             
+            <StyleCancel>
             <Button color="error" onClick={() => setOpen(false)}> Cancel  <GiKnifeFork/> </Button>
+
+            </StyleCancel>
+      
            
           </DialogActions>
           
@@ -156,6 +212,10 @@ input{
 
 }
 
+#submit-button {
+  background-color: green;
+}
+
 
 label{
   color:#482908;
@@ -164,12 +224,15 @@ label{
 
 
 `
-// const SubmitStyle =styled.div`
-// box-shadow: 1px 1px 1px 1px green;
-// `
-// const CancelStyle =styled.div`
-// box-shadow: 1px 1px 1px 1px red;
 
-// `
+const StyleSubmit =styled.div`
+border: 1px solid green;
+
+`
+
+const StyleCancel =styled.div`
+border: 1px solid red;
+`
+
 
 export default Popup
