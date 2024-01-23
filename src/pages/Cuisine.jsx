@@ -36,7 +36,7 @@ const Cuisine = () => {
             <Card key = {item.id}>
                 <Link to = {"/recipe/" + item.id}> 
                     <img src={item.image} alt="" />
-                    <h4> {item.title} </h4>
+                    <p> {item.title} </p>
                 </Link>
 
             </Card>
@@ -53,6 +53,19 @@ const Grid = styled(motion.div)`
     display: grid;
     grid-template-columns: repeat(4, minmax(250px, 1fr) );
     grid-gap: 3rem;
+    
+
+    @media screen and (max-width: 450px) {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(150px, 1fr) );
+        grid-gap: 1.5rem;
+
+        p{
+            font-size: 0.5;
+        }
+        margin:2px;
+
+    }
 `
 
 const Card = styled.div ` 
@@ -65,10 +78,14 @@ const Card = styled.div `
         text-decoration: none;
     }
 
-    h4 {
+    p {
         text-align: center;
         padding: 1rem;
+        font-weight: 600;
+        font-size: 1rem;
     }
+
+    
 `
       
 

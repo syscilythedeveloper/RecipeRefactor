@@ -104,6 +104,8 @@ function Recipe() {
 const DetailWrapper = styled.div`
     margin: 10px;
     display: flex; 
+
+    
     
     
 

@@ -48,8 +48,8 @@ margin: 2rem 15rem;
 text-align: center;
 justify-content: center;
   align-items: center;
-  margin-left: 1px;
-  margin-right: 1px;
+  margin-left: 5px;
+  margin-right: 5px;
   
 }
 

@@ -55,6 +55,11 @@ const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(4, minmax(250px, 1fr) );
     grid-gap: 3rem;
+
+    
+
+
+
 `
 
 const Card = styled.div ` 
