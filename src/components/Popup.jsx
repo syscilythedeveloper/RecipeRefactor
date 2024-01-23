@@ -84,7 +84,7 @@ function Popup  ()   {
     
   
   
-    <Button onClick={() => setOpen(true)}> Extended Search</Button> 
+    <PopUpButton> <Button onClick={() => setOpen(true)} > Extended Search</Button> </PopUpButton>
     
     
     <Dialog 
@@ -96,8 +96,8 @@ function Popup  ()   {
       aria-describedby="dialog-description"
     >
      
-      <DialogTitle id="dialog-title"> <h4>Extended Search Options</h4></DialogTitle>
       <AdvancedFormStyle>
+      <DialogTitle id="dialog-title"> <h4>Extended Search Options</h4></DialogTitle>
       <DialogContent>
       
           
@@ -181,15 +181,15 @@ function Popup  ()   {
   )
 }
 
+const PopUpButton =styled.div`
+margin-top:5px;
+margin-left: 50px;
 
+`
 
 const AdvancedFormStyle =styled.div`
 
-section{
-background-color: rgb(130, 94, 92, 0.25);
-border-radius: 5px;
-color:#482908;
-}
+
 
 h4{
   text-align: center;
