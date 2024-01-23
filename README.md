@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# NutriRecipe App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+NutriRecipe is a user-friendly application designed to cater to culinary enthusiasts, health-conscious individuals, and anyone seeking culinary inspiration. This app empowers users to discover a world of delicious recipes tailored to their specific preferences. With NutriRecipe, you can effortlessly search for recipes based on desired ingredients, macronutrients, and dietary preferences. Whether you're a seasoned chef or a cooking novice, NutriRecipe is your go-to companion for culinary exploration and healthy eating.
 
-## Available Scripts
+## Demo
 
-In the project directory, you can run:
+Check out the live demo: [Recipe Search App](https://nutrirecipe-sb.com/)
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React
+- React Router
+- Material-UI
+- Emotion (CSS-in-JS)
+- Splide (Image Slider)
+- Bootstrap
+- Framer Motion
+- React Icons
+- Styled Components
+- Web Vitals
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+1. **Clone the repository:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   git clone https://github.com/your-username/recipe-search.git
+   ```
 
-### `npm run build`
+2. **Installation:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   - Navigate to the project directory:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+     ```bash
+     cd recipe-search
+     ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   - Install dependencies:
 
-### `npm run eject`
+     ```bash
+     npm install
+     ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. **Usage:**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   - Start the development server:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+     ```bash
+     npm start
+     ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   - Open your browser and go to [http://localhost:3000](http://localhost:3000) to view the app.
 
-## Learn More
+4. **Contributing:**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   - If you'd like to contribute to the project, follow the guidelines in the [Contribution Guidelines](CONTRIBUTING.md).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. **License:**
 
-### Code Splitting
+   - This project is licensed under the [MIT License](LICENSE).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+6. **Contact Information:**
 
-### Analyzing the Bundle Size
+   - For questions or feedback, contact us at recipe.search@example.com.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+7. **Version History:**
 
-### Making a Progressive Web App
+   - Check the [Changelog](CHANGELOG.md) for information on updates and releases.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+8. **Troubleshooting:**
 
-### Advanced Configuration
+   - If you encounter any issues, refer to the [Troubleshooting Guide](TROUBLESHOOTING.md) or open an [issue](https://github.com/your-username/recipe-search/issues).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+9. **Security:**
 
-### Deployment
+   - If you discover any security vulnerabilities, please report them by emailing security@example.com.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Enjoy using the Recipe Search App! Happy cooking! 🍲👩‍🍳
