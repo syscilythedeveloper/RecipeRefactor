@@ -84,7 +84,7 @@ function Popup  ()   {
     
   
   
-    <Button onClick={() => setOpen(true)}> Extended Search</Button>
+    <Button onClick={() => setOpen(true)}> Extended Search</Button> 
     
     
     <Dialog 
@@ -180,6 +180,8 @@ function Popup  ()   {
 
   )
 }
+
+
 
 const AdvancedFormStyle =styled.div`
 

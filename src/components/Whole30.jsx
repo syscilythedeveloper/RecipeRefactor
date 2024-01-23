@@ -64,6 +64,17 @@ const Whole30 = () => {
 
 
 const Wrapper = styled.div`
+@media screen and (max-width: 800px) {
+  margin: 0;  
+  width: 100%; /* Adjust width for smaller devices */
+  height: 12rem; /* Adjust height for smaller devices */
+  p span {
+   color: black; }
+   
+  }
+  p{
+    background: white;
+  }
 
 margin: 5rem 10rem;
 `;
@@ -124,6 +135,7 @@ const Card = styled.div`
     background-color: white; /* Change text color on hover */
     width: 100%
   }
+
 `;
 
 
@@ -135,6 +147,12 @@ width: 100%;
 height: 100%;
 background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5))
 `
+
+
+
+
+ 
+
 
 
 export default Whole30
