@@ -24,9 +24,12 @@ const FilterSearched = () => {
 
 
   console.log("results: ", resultObject)
-  console.log("ingredients: ", resultObject.includeIngredients)
+  console.log("Include ingredients: ", resultObject.includeIngredients)
+  console.log("Exclude ingredients: ", resultObject.excludeIngredients)
   console.log("Maximum Calories: ", resultObject.maxCal)
+  console.log("Minimum Calories: ", resultObject.minCal)
   console.log("Minimum Protein: ", resultObject.minProtein)
+  console.log("Maximum Fat: ", resultObject.maxFat)
   setReqs(resultObject)
 
 

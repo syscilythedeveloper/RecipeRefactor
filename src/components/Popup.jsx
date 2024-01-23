@@ -23,22 +23,22 @@ function Popup  ()   {
       nutritionalRequirements.includeIngredients = "onion"
     }
     if (!nutritionalRequirements.excludeIngredients){
-      nutritionalRequirements.excludeIngredients = "pork"
+      nutritionalRequirements.excludeIngredients = "moose"
     }
     if (!nutritionalRequirements.maxCal){
-      nutritionalRequirements.maxCal = 600
+      nutritionalRequirements.maxCal = 900
     }
 
     if (!nutritionalRequirements.minCal){
-      nutritionalRequirements.minCal = 200
+      nutritionalRequirements.minCal = 1
     }
 
     if (!nutritionalRequirements.minProtein){
-      nutritionalRequirements.minProtein = 200
+      nutritionalRequirements.minProtein = 1
     }
 
     if (!nutritionalRequirements.maxFat){
-      nutritionalRequirements.maxFat = 125
+      nutritionalRequirements.maxFat = 900
     }
 
     const queryParams = queryString.stringify(nutritionalRequirements);
