@@ -35,6 +35,13 @@ const Search = () => {
 
 const FormStyle =styled.form`
 margin: 0rem 2rem; 
+
+@media screen and (max-width: 450px) {
+  div{
+    justify-content: center;
+    align-items: center;
+  }
+}
  
 div{
   width: 85%;

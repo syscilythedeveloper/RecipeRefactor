@@ -70,6 +70,22 @@ function Popular() {
 
 
 const Wrapper = styled.div`
+@media screen and (max-width: 450px) {
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  margin-top: 20px;
+  
+  width: 60rem; 
+  height: 15rem; 
+  p span {
+   color: black; }
+   p{
+    background: white;
+  }
+   
+  }
+ 
 
 margin: 5rem 10rem;
 `;

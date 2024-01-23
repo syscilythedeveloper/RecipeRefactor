@@ -10,7 +10,7 @@ const Category = () => {
   return (
     <List activeClassName="activeClass">
 
-
+    
       <SLink to={'/cuisine/Caribbean'}>
         <GiRoastChicken />
         <h4>Caribbean</h4>
@@ -31,6 +31,8 @@ const Category = () => {
         <GiChiliPepper/>
         <h4>Thai</h4>
       </SLink>
+    
+    
 
 
     </List>
@@ -41,6 +43,17 @@ const List = styled.div`
 display:flex;
 justify-content: center;
 margin: 2rem 15rem;
+
+@media screen and (max-width: 450px) {
+text-align: center;
+justify-content: center;
+  align-items: center;
+  margin-left: 1px;
+  margin-right: 1px;
+  
+}
+
+
 `
 
 const SLink = styled(NavLink)`

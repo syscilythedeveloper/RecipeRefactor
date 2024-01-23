@@ -64,17 +64,24 @@ const Whole30 = () => {
 
 
 const Wrapper = styled.div`
-@media screen and (max-width: 800px) {
-  margin: 0;  
-  width: 100%; /* Adjust width for smaller devices */
-  height: 12rem; /* Adjust height for smaller devices */
+
+@media screen and (max-width: 450px) {
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  margin-bottom: 50px;
+  
+  width: 60rem; 
+  height: 15rem; 
   p span {
    color: black; }
-   
-  }
-  p{
+   p{
     background: white;
   }
+
+   
+  }
+
 
 margin: 5rem 10rem;
 `;
