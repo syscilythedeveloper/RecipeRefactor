@@ -27,9 +27,11 @@ const FilterSearched = () => {
   console.log("Include ingredients: ", resultObject.includeIngredients)
   console.log("Exclude ingredients: ", resultObject.excludeIngredients)
   console.log("Maximum Calories: ", resultObject.maxCal)
+
   console.log("Minimum Calories: ", resultObject.minCal)
   console.log("Minimum Protein: ", resultObject.minProtein)
   console.log("Maximum Fat: ", resultObject.maxFat)
+  
   setReqs(resultObject)
 
 
@@ -44,7 +46,10 @@ const FilterSearched = () => {
 
 
   const getFilterSearched = async(resultObject) => {
-    const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&maxCal=${resultObject.maxCal}&includeIngredients=${resultObject.includeIngredients}&minProtein=${resultObject.minProtein}`)
+ 
+
+
+    const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&maxCal=${resultObject.maxCal}&includeIngredients=${resultObject.includeIngredients}&minProtein=${resultObject.minProtein}&excludeIngredients=${resultObject.excludeIngredients}&minCal=${resultObject.minCal}&maxCal=${resultObject.maxCal}&maxFat=${resultObject.maxFat}`)
     const recipes = await data.json();
 
     setFilterSearchRecipes(recipes.results)
