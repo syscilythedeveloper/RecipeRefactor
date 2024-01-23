@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import {GiKnifeFork} from "react-icons/gi"
 import styled from "styled-components"
 import { useParams } from "react-router-dom";
 
@@ -48,7 +49,7 @@ function Recipe() {
   return (
     <DetailWrapper>
       <div>
-        <h2>{details.title}</h2>
+        <h2><span>{details.title}</span></h2>
         <img src ={details.image} alt=""></img>
       </div>
       <Info>
@@ -105,6 +106,41 @@ const DetailWrapper = styled.div`
     margin: 10px;
     display: flex; 
 
+    @media screen and (max-width: 450px) {
+        
+        img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+        span{
+            font-size: 1rem;
+        }
+
+        Button{
+            font-size: 0.5rem;
+            padding:0.5rem 1rem;
+        }
+        ul{
+            margin: 0px;
+            
+        }
+
+         ul li{
+            font-size: .7rem;
+            list-style-type: disc;
+        }
+
+        ol li {
+            
+            font-size: .7rem;
+            
+            margin:0px;
+          
+        }
+
+    }
+
+
     
     
     
@@ -127,7 +163,8 @@ const DetailWrapper = styled.div`
 
     p{
         margin-top: 2rem;
-        font-size: 1.2rem;
+        font-size: 30px;
+        
     }
 `
 

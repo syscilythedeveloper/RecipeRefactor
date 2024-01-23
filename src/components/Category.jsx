@@ -13,23 +13,23 @@ const Category = () => {
     
       <SLink to={'/cuisine/Caribbean'}>
         <GiRoastChicken />
-        <h4>Caribbean</h4>
+        <p>Caribbean</p>
       </SLink>
 
       <SLink to={'/cuisine/Mexican'}>
         <GiTacos />
-        <h4>Mexican</h4>
+        <p>Mexican</p>
       </SLink>
 
 
       <SLink to={'/cuisine/American'} >
         <FaHamburger/>
-        <h4>American</h4>
+        <p>American</p>
       </SLink>
 
       <SLink to={'/cuisine/Thai'} >
         <GiChiliPepper/>
-        <h4>Thai</h4>
+        <p>Thai</p>
       </SLink>
     
     
@@ -45,11 +45,14 @@ justify-content: center;
 margin: 2rem 15rem;
 
 @media screen and (max-width: 450px) {
-text-align: center;
-justify-content: center;
   align-items: center;
-  margin-left: 5px;
-  margin-right: 5px;
+  display:inline-block
+ 
+
+
+  p{
+    font-size: 0.65rem
+  }
   
 }
 
@@ -69,9 +72,9 @@ width: 6rem;
 height:6rem;
 transform: scale(0.8);
 
-h4{
+p{
     color: white;
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 
@@ -92,7 +95,7 @@ svg{
         color: #482908;
         
     }
-    h4 {
+    p {
         color: #482908;
     }
 

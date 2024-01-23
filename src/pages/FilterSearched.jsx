@@ -81,6 +81,12 @@ const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(4, minmax(250px, 1fr) );
     grid-gap: 3rem;
+
+    @media screen and (max-width: 450px) {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(150px, 1fr) );
+        grid-gap: 1.5rem;}
+
 `
 
 const Card = styled.div ` 
