@@ -33,8 +33,7 @@ const Category = () => {
 };
 
 const Heading = styled.h4`
-  // Add your styles for h4 here
-  color: #482908; // Example color
+  color: #614023;
   text-align: center;
   font-size: 0.8em;
 `;

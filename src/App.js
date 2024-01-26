@@ -44,7 +44,7 @@ const Logo = styled(Link)`
   font-size: 1.5rem;
   font-weight: 400;
   font-family: "Lobster Two", cursive;
-  color: #b5651d;
+  color: #614023;
 `;
 
 const Nav = styled.div`
@@ -54,14 +54,16 @@ const Nav = styled.div`
   align-items: center;
   svg {
     font-size: 1.5rem;
-    color: #b5651d;
+    color: #614023;
   }
 `;
 
 const WelcomeMessage = styled.div`
-  width: 50%;
-  font-size: 0.8rem;
+  width: 65%;
+  font-size: 1rem;
   color: #b5651d;
+  margin-left: 35px;
+  margin-bottom: 15px;
 `;
 
 export default App;
